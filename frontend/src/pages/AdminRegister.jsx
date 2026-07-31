@@ -1,0 +1,50 @@
+import React, { useState } from "react";
+import { useNavigate, Link } from "react-router-dom";
+import { adminRegister } from "../api/authApi";
+import "../components/user/Auth.css";
+
+function AdminRegister() {
+  const navigate = useNavigate();
+  const [form, setForm] = useState({ name: "", email: "", password: "" });
+  const [error, setError] = useState("");
+  const [loading, setLoading] = useState(false);
+
+  const handleChange = (e) => setForm({ ...form, [e.target.name]: e.target.value });
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setError("");
+    setLoading(true);
+    try {
+      await adminRegister(form);
+      navigate("/admin/login");
+    } catch (err) {
+      setError(err.response?.data?.message || "Registration failed.");
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  return (
+    <div className="auth-page">
+      <form className="auth-card" onSubmit={handleSubmit}>
+        <h2>Admin Registration</h2>
+        {error && <p className="auth-error">{error}</p>}
+        <label>Full Name</label>
+        <input type="text" name="name" value={form.name} onChange={handleChange} required />
+        <label>Email</label>
+        <input type="email" name="email" value={form.email} onChange={handleChange} required />
+        <label>Password</label>
+        <input type="password" name="password" value={form.password} onChange={handleChange} required />
+        <button type="submit" disabled={loading}>
+          {loading ? "Creating account..." : "Register"}
+        </button>
+        <p className="auth-footer">
+          Already registered? <Link to="/admin/login">Login</Link>
+        </p>
+      </form>
+    </div>
+  );
+}
+
+export default AdminRegister;

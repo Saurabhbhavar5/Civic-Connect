@@ -1,0 +1,100 @@
+.submit-complaint {
+  background-color: #ffffff;
+  border-radius: 12px;
+  padding: 24px;
+  max-width: 480px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+.submit-complaint form {
+  display: flex;
+  flex-direction: column;
+}
+
+.submit-complaint label {
+  font-size: 12px;
+  color: #6b7280;
+  margin-top: 10px;
+  margin-bottom: 4px;
+}
+
+.submit-complaint input,
+.submit-complaint select,
+.submit-complaint textarea {
+  padding: 10px 12px;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  font-size: 13px;
+  font-family: inherit;
+}
+
+.submit-complaint button {
+  margin-top: 18px;
+  padding: 12px;
+  background-color: #2563eb;
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.submit-complaint-success {
+  background-color: #d1fae5;
+  color: #065f46;
+  padding: 8px 10px;
+  border-radius: 6px;
+  font-size: 12px;
+  margin-bottom: 10px;
+}
+
+.submit-complaint-error {
+  background-color: #fee2e2;
+  color: #991b1b;
+  padding: 8px 10px;
+  border-radius: 6px;
+  font-size: 12px;
+  margin-bottom: 10px;
+
+  .submit-complaint-preview {
+  margin-top: 10px;
+  max-width: 100%;
+  max-height: 180px;
+  border-radius: 8px;
+  border: 1px solid #e5e7eb;
+  object-fit: cover;
+}
+
+.submit-complaint-location-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.submit-complaint-location-row button {
+  margin-top: 0;
+  padding: 8px 14px;
+  background-color: #f3f4f6;
+  color: #111827;
+  font-weight: 500;
+  font-size: 12px;
+  border: 1px solid #d1d5db;
+}
+
+.submit-complaint-location-row button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.submit-complaint-coords {
+  font-size: 12px;
+  color: #6b7280;
+}
+
+.submit-complaint-location-error {
+  font-size: 12px;
+  color: #991b1b;
+  margin-top: 6px;
+}
+}
